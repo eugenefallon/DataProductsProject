@@ -6,7 +6,12 @@ shinyUI(pageWithSidebar(
       p('I am basing this on the content from the Practical Machine Learning course, specifically the lecture on Covariate Creation'),
       p('This project will use the wage data contained in the ISLR package, a future enhancement might be to allow input of the dataset to analyze.'),
       p('On startup, the app displays information for the entire dataset.'),
-      p('Users should use the dropdown below to select a region for subsetting and analyzing the data ')
+      p('Users should use the radio buttons below to select a job class for subsetting and analyzing the data '),
+      radioButtons("whichWage", "Dataset slice:",
+                         c("All Data" = "all",
+                           "Industrial Worker" = "ind",
+                           "Information Worker" = "inf"),
+                         selected = "All Data")
   ),
   mainPanel(
       tabsetPanel(
